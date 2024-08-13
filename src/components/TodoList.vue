@@ -10,7 +10,7 @@
         <hr>
         <ul>
             <li v-for="(todo , index) in todos" :key="index">
-                <input type="checkbox" v-model="todo.status">
+                <input type="checkbox" v-model="todo.status" @click="toggleStatus(todo.id)">
                 {{ todo.content }}   {{ todo.status?'完成':'未完成' }}
                 <div v-if="todo.isEditing">
                     <input type="text" v-model="editText[todo.id]" @change="changeText($event, todo.id)">
@@ -124,6 +124,15 @@ const todoDelete = async(id)=>{
 };
 
 }
+//完成狀態
+const toggleStatus = async (id) => {
+  await axios.patch(
+    `${ApiBase}/todos/${id}/toggle`,
+    {},
+    {headers: { Authorization: tokenCookie,},}
+  );
+  getTodos();
+};
 </script>
 
 <style>
