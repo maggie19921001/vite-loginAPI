@@ -87,7 +87,7 @@ const checkOut = async()=>{
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 500px;
+  max-width: 500px;
   word-wrap:break-word
 }
 button{

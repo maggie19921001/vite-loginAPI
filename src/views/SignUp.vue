@@ -44,8 +44,10 @@ async function SignUp(){
   display: flex;
   flex-direction: column;
   padding: 20px;
+  max-width: 500px;
 }
 button{
   margin-top: 10px;
 }
+
 </style>
